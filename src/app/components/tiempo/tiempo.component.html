@@ -1,0 +1,35 @@
+<div class="weather-card border rounded">
+  <div class="container-fluid">
+    <div class="d-flex">
+      <input
+        class="form-control me-2 mt-3"
+        type="text"
+        name="cityName"
+        placeholder="Busca una ciudad"
+        [(ngModel)]="ciudad"
+      />
+      <button
+        type="button"
+        class="btn btn-outline-light mt-3"
+        (click)="getWeather()"
+      >
+        BUSCAR
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="clima" class="d-flex flex-column align-items-center mt-5">
+    <p class="text-center text-light fs-1">{{ clima.main.temp }}°C</p>
+
+    <p class="text-center text-light fs-1">
+      {{ clima.name }}, {{ clima.sys.country }}
+    </p>
+
+    <p class="text-center text-light fs-3">
+      {{ clima.weather[0].description }}
+    </p>
+    <p class="text-center text-light fs-3">
+      Humedad: {{ clima.main.humidity }}%
+    </p>
+  </div>
+</div>
